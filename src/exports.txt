@@ -1,0 +1,21 @@
+# Exported symbols for libAppleParavirtCompilerPluginIOGPUFamily.dylib
+
+# C API functions
+_MTLCompilerCreate
+_MTLCompilerDelete
+_MTLCompilerBuildRequestWithOptions
+_MTLCompilerReleaseReply
+
+# AppleParavirtCompiler class methods (C++ mangled names)
+__ZN21AppleParavirtCompiler4initEv
+__ZN21AppleParavirtCompiler23buildRequestWithOptionsEPKvmjPN4llvm6ModuleEPS1_PmS5_S6_S5_S6_PPKc
+__ZN21AppleParavirtCompiler19deleteCompilerReplyEv
+__ZN21AppleParavirtCompilerD0Ev
+__ZN21AppleParavirtCompilerD1Ev
+__ZN21AppleParavirtCompilerD2Ev
+
+# AppleParavirtCompiler vtable
+__ZTV21AppleParavirtCompiler
+
+# Entry points metadata
+_entryPointsMetadata

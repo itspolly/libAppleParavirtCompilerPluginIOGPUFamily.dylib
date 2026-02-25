@@ -1,0 +1,52 @@
+Symtab
+------
+0x1e9911374:  (__TEXT,__text) external  _MTLCompilerBuildRequestWithOptions
+0x1e99112b8:  (__TEXT,__text) external  _MTLCompilerCreate
+0x1e9911598:  (__TEXT,__text) external  _MTLCompilerDelete
+0x1e99115c4:  (__TEXT,__text) external  _MTLCompilerReleaseReply
+0x1e99115f4:  (__TEXT,__text) external  __ZN21AppleParavirtCompiler19deleteCompilerReplyEv
+0x1e9911388:  (__TEXT,__text) external  __ZN21AppleParavirtCompiler23buildRequestWithOptionsEPKvmjPN4llvm6ModuleEPS1_PmS5_S6_S5_S6_PPKc
+0x1e9911308:  (__TEXT,__text) external  __ZN21AppleParavirtCompiler4initEv
+0x1e9911684:  (__TEXT,__text) external  __ZN21AppleParavirtCompilerD0Ev
+0x1e9911680:  (__TEXT,__text) external  __ZN21AppleParavirtCompilerD1Ev
+0x1e9911624:  (__TEXT,__text) external  __ZN21AppleParavirtCompilerD2Ev
+0x221a148a0:  (__AUTH_CONST,__const) external   __ZTV21AppleParavirtCompiler
+0x21da4ab80:  (__DATA,__data) external  _entryPointsMetadata
+              (undefined) external      _LLVMDisposeMemoryBuffer         (from libLLVM.dylib)
+              (undefined) external      _LLVMExtraDisposeSharedModule    (from libGPUCompiler.dylib)
+              (undefined) external      _LLVMExtraMakeSharedModule       (from libGPUCompiler.dylib)
+              (undefined) external      _LLVMGetBufferSize       (from libLLVM.dylib)
+              (undefined) external      _LLVMGetBufferStart      (from libLLVM.dylib)
+              (undefined) external      _LLVMGetTarget   (from libLLVM.dylib)
+              (undefined) external      _MTLDowngradeAIRModule   (from libGPUCompiler.dylib)
+              (undefined) external      _MTLGPUCompilerCreate    (from libGPUCompiler.dylib)
+              (undefined) external      _MTLGPUCompilerDestroy   (from libGPUCompiler.dylib)
+              (undefined) external      _MTLMetalFunctionCreate  (from libGPUCompiler.dylib)
+              (undefined) external      _MTLMetalLibCreateExecutableWithTriple   (from libGPUCompiler.dylib)
+              (undefined) external      _MTLMetalLibDestroy      (from libGPUCompiler.dylib)
+              (undefined) external      _MTLMetalLibInsertFunction       (from libGPUCompiler.dylib)
+              (undefined) external      _MTLWriteMetalLibToMemoryBuffer  (from libGPUCompiler.dylib)
+              (undefined) external      __Unwind_Resume  (from libSystem.B.dylib)
+              (undefined) external      __ZNK4llvm11NamedMDNode10getOperandEj    (from libLLVM.dylib)
+              (undefined) external      __ZNK4llvm5Value7getNameEv       (from libLLVM.dylib)
+              (undefined) external      __ZNK4llvm6Module16getNamedMetadataERKNS_5TwineE         (from libLLVM.dylib)
+              (undefined) external      __ZNSt11logic_errorC2EPKc        (from libc++.1.dylib)
+              (undefined) external      __ZNSt12length_errorD1Ev         (from libc++.1.dylib)
+              (undefined) external      __ZSt9terminatev         (from libc++.1.dylib)
+              (undefined) external      __ZTVN10__cxxabiv117__class_type_infoE   (from libc++.1.dylib)
+              (undefined) external      __ZTVN10__cxxabiv120__si_class_type_infoE        (from libc++.1.dylib)
+              (undefined) external      __ZTVSt12length_error    (from libc++.1.dylib)
+              (undefined) weak external automatically hidden    __ZdlPv  (from libc++.1.dylib)
+              (undefined) weak external automatically hidden    __Znwm   (from libc++.1.dylib)
+              (undefined) external      ___assert_rtn    (from libSystem.B.dylib)
+              (undefined) external      ___cxa_allocate_exception        (from libc++.1.dylib)
+              (undefined) external      ___cxa_begin_catch       (from libc++.1.dylib)
+              (undefined) external      ___cxa_free_exception    (from libc++.1.dylib)
+              (undefined) external      ___cxa_throw     (from libc++.1.dylib)
+              (undefined) external      ___gxx_personality_v0    (from libc++.1.dylib)
+              (undefined) external      ___stack_chk_fail        (from libSystem.B.dylib)
+              (undefined) external      ___stack_chk_guard       (from libSystem.B.dylib)
+              (undefined) external      __os_log_default         (from libSystem.B.dylib)
+              (undefined) external      __os_log_error_impl      (from libSystem.B.dylib)
+              (undefined) external      _memmove         (from libSystem.B.dylib)
+              (undefined) external      _os_log_type_enabled     (from libSystem.B.dylib)
