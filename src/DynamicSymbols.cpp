@@ -16,7 +16,7 @@ void* (*g_llvm_NamedMDNode_getOperand)(void* namedMD, uint32_t index) = nullptr;
 void* (*g_LLVMExtraMakeSharedModule)(void* module) = nullptr;
 void (*g_LLVMExtraDisposeSharedModule)(void* sharedModule) = nullptr;
 int (*g_MTLDowngradeAIRModule)(void* module, uint64_t version, int flags) = nullptr;
-void* (*g_MTLGPUCompilerCreate)() = nullptr;
+void* (*g_MTLGPUCompilerCreate)(int createFlags) = nullptr;
 void (*g_MTLGPUCompilerDestroy)(void* compiler) = nullptr;
 void* (*g_MTLMetalFunctionCreate)(void* sharedModule, const char* name) = nullptr;
 void* (*g_MTLMetalLibCreateExecutableWithTriple)(const char* triple) = nullptr;
@@ -70,7 +70,7 @@ bool InitializeDynamicSymbols() {
     g_LLVMExtraMakeSharedModule = (void* (*)(void*))LoadSymbol(gpuCompilerHandle, "LLVMExtraMakeSharedModule");
     g_LLVMExtraDisposeSharedModule = (void (*)(void*))LoadSymbol(gpuCompilerHandle, "LLVMExtraDisposeSharedModule");
     g_MTLDowngradeAIRModule = (int (*)(void*, uint64_t, int))LoadSymbol(gpuCompilerHandle, "MTLDowngradeAIRModule");
-    g_MTLGPUCompilerCreate = (void* (*)())LoadSymbol(gpuCompilerHandle, "MTLGPUCompilerCreate");
+    g_MTLGPUCompilerCreate = (void* (*)(int))LoadSymbol(gpuCompilerHandle, "MTLGPUCompilerCreate");
     g_MTLGPUCompilerDestroy = (void (*)(void*))LoadSymbol(gpuCompilerHandle, "MTLGPUCompilerDestroy");
     g_MTLMetalFunctionCreate = (void* (*)(void*, const char*))LoadSymbol(gpuCompilerHandle, "MTLMetalFunctionCreate");
     g_MTLMetalLibCreateExecutableWithTriple = (void* (*)(const char*))LoadSymbol(gpuCompilerHandle, "MTLMetalLibCreateExecutableWithTriple");

@@ -8,11 +8,18 @@
 extern "C" {
 #endif
 
+// Target information structure (8 bytes)
+// This is passed to MTLCompilerCreate in PCC (iOS 19) version
+typedef struct AppleParavirtCompilerTargetInfo {
+    uint64_t info;
+} AppleParavirtCompilerTargetInfo;
+
 // Opaque type for the compiler
 typedef struct AppleParavirtCompiler AppleParavirtCompiler;
 
 // C API functions
-AppleParavirtCompiler* MTLCompilerCreate(void);
+// PCC (iOS 19) signature: takes target info and size (must be 8)
+AppleParavirtCompiler* MTLCompilerCreate(const AppleParavirtCompilerTargetInfo* targetInfo, size_t targetInfoSize);
 void MTLCompilerDelete(AppleParavirtCompiler* compiler);
 void MTLCompilerReleaseReply(AppleParavirtCompiler* compiler);
 

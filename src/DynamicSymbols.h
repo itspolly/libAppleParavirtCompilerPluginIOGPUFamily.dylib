@@ -31,7 +31,7 @@ extern void* (*g_llvm_NamedMDNode_getOperand)(void* namedMD, uint32_t index);
 extern void* (*g_LLVMExtraMakeSharedModule)(void* module);
 extern void (*g_LLVMExtraDisposeSharedModule)(void* sharedModule);
 extern int (*g_MTLDowngradeAIRModule)(void* module, uint64_t version, int flags);
-extern void* (*g_MTLGPUCompilerCreate)();
+extern void* (*g_MTLGPUCompilerCreate)(int createFlags);
 extern void (*g_MTLGPUCompilerDestroy)(void* compiler);
 extern void* (*g_MTLMetalFunctionCreate)(void* sharedModule, const char* name);
 extern void* (*g_MTLMetalLibCreateExecutableWithTriple)(const char* triple);

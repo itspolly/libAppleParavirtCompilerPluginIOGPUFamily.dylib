@@ -47,22 +47,31 @@ struct TwineWrapper {
 // AppleParavirtCompiler C++ class
 class __attribute__((visibility("default"))) AppleParavirtCompiler {
 public:
-    void* memoryBuffer;      // Offset +8
-    void* gpuCompiler;       // Offset +16
+    void* memoryBuffer;                      // Offset +8
+    void* gpuCompiler;                       // Offset +16
+    AppleParavirtCompilerTargetInfo targetInfo;  // Offset +24 (NEW in PCC version, 8 bytes)
 
-    AppleParavirtCompiler() : memoryBuffer(nullptr), gpuCompiler(nullptr) {}
+    AppleParavirtCompiler() : memoryBuffer(nullptr), gpuCompiler(nullptr), targetInfo{0} {}
 
     __attribute__((visibility("default")))
     virtual ~AppleParavirtCompiler();
 
     __attribute__((visibility("default"), noinline))
-    bool init() {
-        gpuCompiler = g_MTLGPUCompilerCreate();
+    bool init(const AppleParavirtCompilerTargetInfo* target) {
+        // PCC version: Store target info at offset +24
+        // Disassembly shows: LDR X8, [X1]; STR X8, [X0,#0x18]
+        if (target) {
+            targetInfo = *target;  // Copy the struct (dereference pointer)
+        }
+
+        // CRITICAL FIX: MTLGPUCompilerCreate takes 1 argument (not 0)
+        // Disassembly shows: MOV W0, #1; BL _MTLGPUCompilerCreate
+        gpuCompiler = g_MTLGPUCompilerCreate(1);
         if (!gpuCompiler) {
             if (os_log_type_enabled(OS_LOG_DEFAULT, OS_LOG_TYPE_ERROR)) {
                 os_log_error(OS_LOG_DEFAULT, "Failed to create GPU compiler");
             }
-            __assert_rtn("init", "AppleParavirtCompiler.mm", 70, "false");
+            __assert_rtn("init", "AppleParavirtCompiler.mm", 77, "false");
             return false;
         }
         return true;
@@ -238,9 +247,17 @@ AppleParavirtCompiler::~AppleParavirtCompiler() {
 extern "C" {
 
 __attribute__((visibility("default")))
-AppleParavirtCompiler* MTLCompilerCreate() {
+AppleParavirtCompiler* MTLCompilerCreate(const AppleParavirtCompilerTargetInfo* targetInfo, size_t targetInfoSize) {
+    // PCC version: Validate size parameter (must be 8 bytes)
+    // Disassembly shows: CMP X1, #8; B.NE return_nullptr
+    if (targetInfoSize != sizeof(AppleParavirtCompilerTargetInfo)) {
+        return nullptr;
+    }
+
+    // Allocate 32 bytes (0x20) - size increased from 24 to accommodate targetInfo
+    // Disassembly shows: MOV W0, #0x20; BL operator new
     AppleParavirtCompiler* compiler = new AppleParavirtCompiler();
-    if (!compiler->init()) {
+    if (!compiler->init(targetInfo)) {
         delete compiler;
         return nullptr;
     }
