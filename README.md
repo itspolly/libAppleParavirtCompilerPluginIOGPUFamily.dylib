@@ -67,7 +67,7 @@ chmod +x build.sh
 ./build.sh
 ```
 
-This will produce: `build/libAppleParavirtCompilerPluginIOGPUFamily.dylib`
+This will produce: `./src/build/libAppleParavirtCompilerPluginIOGPUFamily.dylib`
 
 ### Build Configuration
 
@@ -194,7 +194,6 @@ You should find `./extracted_cache/System/Library/Extensions/AppleParavirtGPUMet
 - `src/DynamicSymbols.cpp` - Dynamic symbol loader implementation
 - `src/exports.txt` - Exported symbols list
 - `src/build.sh` - Build script
-- `src/README.md` - This file
 
 ## Notes
 
