@@ -6,6 +6,7 @@
 - Ensure your binary's public interface matches exactly: AppleParavirtCompiler must have the same vtable as in libAppleParavirtCompilerPluginIOGPUFamily.dylib
 - If connection to IDA MCP fails stop and output exactly that, along with any output needed for debugging
 - You must call `close_idb` when work with IDA is done (preferably close the db regularly so changes are persisted if the agent encounters an issue, the default state should be closed, do not close the db when an open request is in progress.)
+- Use nm to check that the exported symbols of the original binary fully match the symbols of the generated code
 
 ## Tips
 
