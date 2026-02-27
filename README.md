@@ -1,4 +1,6 @@
-# libAppleParavirtCompilerPluginIOGPUFamily.dylib Recreation
+# Currently broken, use [this](https://zeroxjf.github.io/blog/metal-patch.html) guide instead for now
+
+libAppleParavirtCompilerPluginIOGPUFamily.dylib Recreation
 
 **NOTE: this repository contains AI-generated code and is untested**
 
